@@ -2,17 +2,32 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import {
-  ArrowDown, ArrowUpRight, Mail, Phone, MapPin, Linkedin, Download,
-  Calendar, Briefcase, GraduationCap, Sparkles, Menu, X,
+  ArrowDown,
+  ArrowUpRight,
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  Download,
+  Calendar,
+  Briefcase,
+  GraduationCap,
+  Sparkles,
+  Menu,
+  X,
 } from "lucide-react";
-import portrait1 from "@/assets/portrait1.jpeg.asset.json";
-import portrait2 from "@/assets/portrait2.jpeg.asset.json";
+import portrait1 from "@/assets/image2.jpeg";
+import portrait2 from "@/assets/image1.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Aayusha Rajbanshi — Event Coordinator & Business Graduate" },
-      { name: "description", content: "Portfolio of Aayusha Rajbanshi — Business Management graduate and event coordinator from Banepa, Nepal." },
+      {
+        name: "description",
+        content:
+          "Portfolio of Aayusha Rajbanshi — Business Management graduate and event coordinator from Banepa, Nepal.",
+      },
     ],
   }),
   component: Portfolio,
@@ -27,7 +42,15 @@ const NAV = [
   { id: "contact", label: "Contact" },
 ];
 
-function Reveal({ children, delay = 0, y = 24 }: { children: ReactNode; delay?: number; y?: number }) {
+function Reveal({
+  children,
+  delay = 0,
+  y = 24,
+}: {
+  children: ReactNode;
+  delay?: number;
+  y?: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y }}
@@ -50,17 +73,29 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/60" : ""}`}>
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/60" : ""}`}
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-10">
-        <a href="#top" className="font-display text-2xl tracking-tight">Aayusha<span className="text-clay">.</span></a>
+        <a href="#top" className="font-display text-2xl tracking-tight">
+          Aayusha<span className="text-clay">.</span>
+        </a>
         <nav className="hidden items-center gap-9 md:flex">
           {NAV.map((n) => (
-            <a key={n.id} href={`#${n.id}`} className="text-sm tracking-wide text-muted-foreground transition-colors hover:text-foreground">
+            <a
+              key={n.id}
+              href={`#${n.id}`}
+              className="text-sm tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+            >
               {n.label}
             </a>
           ))}
-          <a href="#contact" className="group inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-5 py-2 text-sm text-background transition hover:bg-transparent hover:text-foreground">
-            Let's talk <ArrowUpRight size={14} className="transition-transform group-hover:rotate-45" />
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2 rounded-full border border-foreground bg-foreground px-5 py-2 text-sm text-background transition hover:bg-transparent hover:text-foreground"
+          >
+            Let's talk{" "}
+            <ArrowUpRight size={14} className="transition-transform group-hover:rotate-45" />
           </a>
         </nav>
         <button className="md:hidden" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -71,7 +106,12 @@ function Nav() {
         <div className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col px-6 py-4">
             {NAV.map((n) => (
-              <a key={n.id} href={`#${n.id}`} onClick={() => setOpen(false)} className="py-3 font-display text-2xl">
+              <a
+                key={n.id}
+                href={`#${n.id}`}
+                onClick={() => setOpen(false)}
+                className="py-3 font-display text-2xl"
+              >
                 {n.label}
               </a>
             ))}
@@ -105,13 +145,24 @@ function Hero() {
             <div className="mt-10 grid grid-cols-1 gap-6 md:max-w-xl">
               <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
                 Business Management graduate and event coordinator crafting thoughtful weddings,
-                corporate gatherings, and client experiences from <span className="text-foreground">Banepa, Nepal</span>.
+                corporate gatherings, and client experiences from{" "}
+                <span className="text-foreground">Banepa, Nepal</span>.
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-4">
-                <a href="#contact" className="group inline-flex items-center gap-3 rounded-full bg-foreground px-7 py-3.5 text-sm text-background transition hover:bg-clay">
-                  Contact me <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-3 rounded-full bg-foreground px-7 py-3.5 text-sm text-background transition hover:bg-clay"
+                >
+                  Contact me{" "}
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
                 </a>
-                <a href="#experience" className="group inline-flex items-center gap-3 rounded-full border border-foreground/30 px-7 py-3.5 text-sm transition hover:border-foreground">
+                <a
+                  href="#experience"
+                  className="group inline-flex items-center gap-3 rounded-full border border-foreground/30 px-7 py-3.5 text-sm transition hover:border-foreground"
+                >
                   View resume <Download size={14} />
                 </a>
               </div>
@@ -122,16 +173,26 @@ function Hero() {
         <motion.div style={{ y }} className="md:col-span-5">
           <Reveal delay={0.2}>
             <div className="relative">
-              <div className="absolute -left-4 -top-4 hidden font-display text-sm italic text-muted-foreground md:block">
+              {/* <div className="absolute -left-4 -top-4 hidden font-display text-sm italic text-muted-foreground md:block">
                 — est. Banepa
-              </div>
+              </div> */}
               <div className="overflow-hidden rounded-[2rem] bg-sand">
-                <img src={portrait1.url} alt="Aayusha Rajbanshi portrait" className="aspect-[4/5] w-full object-cover" />
+                <img
+                  src={portrait1}
+                  alt="Aayusha Rajbanshi portrait"
+                  className="aspect-[4/5] w-full object-cover"
+                />
               </div>
               <div className="mt-6 grid grid-cols-3 gap-4 text-xs uppercase tracking-widest text-muted-foreground">
-                <div><div className="text-2xl font-display text-foreground">3.76</div>GPA · BBM</div>
-                <div><div className="text-2xl font-display text-foreground">50+</div>Events</div>
-                <div><div className="text-2xl font-display text-foreground">2yr</div>Experience</div>
+                <div>
+                  <div className="text-2xl font-display text-foreground">3.76</div>GPA · BBM
+                </div>
+                <div>
+                  <div className="text-2xl font-display text-foreground">50+</div>Events
+                </div>
+                <div>
+                  <div className="text-2xl font-display text-foreground">2yr</div>Experience
+                </div>
               </div>
             </div>
           </Reveal>
@@ -139,7 +200,9 @@ function Hero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
         className="mt-20 flex items-center justify-center gap-3 pb-10 text-xs uppercase tracking-[0.3em] text-muted-foreground md:mt-32"
       >
         <span>Scroll</span>
@@ -170,11 +233,17 @@ function About() {
           <Reveal>
             <div className="sticky top-32 space-y-6">
               <div className="overflow-hidden rounded-[2rem] bg-sand">
-                <img src={portrait2.url} alt="Aayusha Rajbanshi" className="aspect-[4/5] w-full object-cover" />
+                <img
+                  src={portrait2}
+                  alt="Aayusha Rajbanshi"
+                  className="aspect-[4/5] w-full object-cover"
+                />
               </div>
               <div className="rounded-2xl border border-border/70 p-6">
                 <p className="font-display text-xl">Banepa-5, Kavre, Nepal</p>
-                <p className="mt-1 text-sm text-muted-foreground">Available for events & collaborations</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  Available for events & collaborations
+                </p>
               </div>
             </div>
           </Reveal>
@@ -182,16 +251,17 @@ function About() {
         <div className="md:col-span-7">
           <Reveal>
             <h2 className="font-display text-5xl leading-[1.05] md:text-7xl">
-              A graduate with a love for <span className="italic text-clay">people, process</span>, and the small details that make moments feel intentional.
+              A graduate with a love for <span className="italic text-clay">people, process</span>,
+              and the small details that make moments feel intentional.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-10 grid gap-6 text-base leading-relaxed text-muted-foreground md:text-lg">
               <p>
-                I'm Aayusha — a Business Management graduate with experience across banking operations
-                and event management. My work blends coordination, client communication, and team
-                collaboration to deliver weddings, corporate events, and social campaigns that feel
-                considered from first call to final toast.
+                I'm Aayusha — a Business Management graduate with experience across banking
+                operations and event management. My work blends coordination, client communication,
+                and team collaboration to deliver weddings, corporate events, and social campaigns
+                that feel considered from first call to final toast.
               </p>
               <p>
                 Strong organizational, problem-solving, and multitasking abilities anchor a
@@ -269,9 +339,13 @@ function Experience() {
                     <h3 className="mt-4 font-display text-4xl md:text-5xl">{e.role}</h3>
                     <p className="mt-2 text-lg text-clay">{e.org}</p>
                   </div>
-                  <ul className={`space-y-3 text-muted-foreground ${i % 2 ? "md:order-1 md:text-right" : ""}`}>
+                  <ul
+                    className={`space-y-3 text-muted-foreground ${i % 2 ? "md:order-1 md:text-right" : ""}`}
+                  >
                     {e.bullets.map((b) => (
-                      <li key={b} className="leading-relaxed">{b}</li>
+                      <li key={b} className="leading-relaxed">
+                        {b}
+                      </li>
                     ))}
                   </ul>
                 </div>
@@ -322,7 +396,9 @@ function Education() {
                     <h3 className="mt-3 font-display text-3xl md:text-4xl">{it.degree}</h3>
                     <p className="mt-1 text-muted-foreground">{it.org}</p>
                   </div>
-                  <div className="shrink-0 rounded-full border border-foreground px-4 py-2 text-sm">{it.meta}</div>
+                  <div className="shrink-0 rounded-full border border-foreground px-4 py-2 text-sm">
+                    {it.meta}
+                  </div>
                 </div>
               </Reveal>
             ))}
@@ -386,7 +462,11 @@ function Skills() {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${val}%` }}
                           viewport={{ once: true }}
-                          transition={{ duration: 1.2, delay: 0.1 + i * 0.06, ease: [0.22, 1, 0.36, 1] }}
+                          transition={{
+                            duration: 1.2,
+                            delay: 0.1 + i * 0.06,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
                           className="h-[2px] -translate-y-px bg-foreground"
                         />
                       </div>
@@ -399,8 +479,20 @@ function Skills() {
         </div>
         <Reveal delay={0.2}>
           <div className="mt-16 flex flex-wrap gap-3">
-            {["English", "Nepali", "Hindi", "Vendor Management", "Wedding Planning", "Corporate Events", "Customer Service", "Banking Operations"].map((t) => (
-              <span key={t} className="rounded-full border border-foreground/20 px-5 py-2 text-sm text-muted-foreground transition hover:border-foreground hover:text-foreground">
+            {[
+              "English",
+              "Nepali",
+              "Hindi",
+              "Vendor Management",
+              "Wedding Planning",
+              "Corporate Events",
+              "Customer Service",
+              "Banking Operations",
+            ].map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-foreground/20 px-5 py-2 text-sm text-muted-foreground transition hover:border-foreground hover:text-foreground"
+              >
                 {t}
               </span>
             ))}
@@ -450,14 +542,18 @@ function Projects() {
         </Reveal>
         <Reveal delay={0.1}>
           <p className="max-w-md text-muted-foreground">
-            A snapshot of events and operational work spanning weddings, corporate launches, and client service.
+            A snapshot of events and operational work spanning weddings, corporate launches, and
+            client service.
           </p>
         </Reveal>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
         {PROJECTS.map((p, i) => (
           <Reveal key={p.title} delay={i * 0.06}>
-            <a href="#contact" className="group block overflow-hidden rounded-3xl border border-border bg-cream transition-all hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.25)]">
+            <a
+              href="#contact"
+              className="group block overflow-hidden rounded-3xl border border-border bg-cream transition-all hover:-translate-y-1 hover:shadow-[0_30px_60px_-30px_rgba(0,0,0,0.25)]"
+            >
               <div className="relative aspect-[16/10] overflow-hidden bg-sand">
                 <img
                   src={i % 2 === 0 ? portrait1.url : portrait2.url}
@@ -465,7 +561,9 @@ function Projects() {
                   className="h-full w-full object-cover opacity-90 transition-transform duration-[1.4s] ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
-                <span className="absolute left-5 top-5 rounded-full bg-background/90 px-3 py-1 text-xs uppercase tracking-widest backdrop-blur">{p.tag}</span>
+                <span className="absolute left-5 top-5 rounded-full bg-background/90 px-3 py-1 text-xs uppercase tracking-widest backdrop-blur">
+                  {p.tag}
+                </span>
               </div>
               <div className="p-7">
                 <div className="flex items-start justify-between gap-4">
@@ -496,7 +594,9 @@ function Achievements() {
     <section className="bg-foreground py-24 text-background md:py-40">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="mb-12 flex items-center gap-5 text-xs uppercase tracking-[0.3em] text-background/60">
-          <span>(06)</span><span className="h-px flex-1 bg-background/20" /><span>Achievements</span>
+          <span>(06)</span>
+          <span className="h-px flex-1 bg-background/20" />
+          <span>Achievements</span>
         </div>
         <Reveal>
           <h2 className="mb-16 max-w-4xl font-display text-5xl leading-[1.05] md:text-7xl">
@@ -536,8 +636,8 @@ function Contact() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-8 max-w-lg text-lg text-muted-foreground">
-              Planning a wedding, launch, or private event? I'd love to hear about it.
-              Reach out and let's bring it to life with care.
+              Planning a wedding, launch, or private event? I'd love to hear about it. Reach out and
+              let's bring it to life with care.
             </p>
           </Reveal>
           <Reveal delay={0.25}>
@@ -569,17 +669,24 @@ function Contact() {
               <div className="flex items-start gap-4">
                 <MapPin size={18} className="mt-1 text-clay" />
                 <div>
-                  <p className="text-xs uppercase tracking-widest text-muted-foreground">Based in</p>
+                  <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                    Based in
+                  </p>
                   <p className="mt-1 font-display text-xl">Banepa-5, Kavre, Nepal</p>
                 </div>
               </div>
               <div className="flex flex-wrap gap-3 pt-4">
-                <a href="#" className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm transition hover:bg-foreground hover:text-background">
+                <button
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/aayusha-rajbanshi-a8581036a/",
+                      "_blank",
+                    )
+                  }
+                  className="inline-flex items-center gap-2 rounded-full border border-foreground px-5 py-2.5 text-sm transition hover:bg-foreground hover:text-background"
+                >
                   <Linkedin size={14} /> LinkedIn
-                </a>
-                <a href="#" className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm text-background transition hover:bg-clay">
-                  <Download size={14} /> Download CV
-                </a>
+                </button>
               </div>
             </div>
           </Reveal>
